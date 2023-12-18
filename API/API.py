@@ -1,22 +1,23 @@
-import os
-import psycopg2
+
 
 from flask import Flask , request, jsonify
 
-def get_db_connection():
-    conn = psycopg2.connect(host='localhost',
-        database="myhome",
-        # user=os.environ['DB_USERNAME'],
-		user="postgres",
-		# password=os.environ['DB_PASSWORD']
-        password="1234")
-    return conn
+from employee import employee_bp 
+from cell import cell_bp
+from instalation import instalation_bp
+from db import  get_db_connection
+
 
 app = Flask(__name__)
+app.register_blueprint(employee_bp, url_prefix='/empleado')
+app.register_blueprint(cell_bp, url_prefix='/celda')
+app.register_blueprint(instalation_bp, url_prefix='/instalacion')
 
 @app.route('/', methods=['GET'])
 def welcome():
-    return "This is a API for accesing data from the database of CAT!"
+  
+    return jsonify("This is a api for the accesing data from the databases of the CAT!")
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000)
