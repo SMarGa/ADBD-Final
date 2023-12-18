@@ -5,6 +5,7 @@ from flask import Flask , request, jsonify
 from employee import employee_bp 
 from cell import cell_bp
 from instalation import instalation_bp
+from route import route_bp
 from db import  get_db_connection
 
 
@@ -12,6 +13,8 @@ app = Flask(__name__)
 app.register_blueprint(employee_bp, url_prefix='/empleado')
 app.register_blueprint(cell_bp, url_prefix='/celda')
 app.register_blueprint(instalation_bp, url_prefix='/instalacion')
+
+app.register_blueprint(route_bp, url_prefix='/ruta')
 
 @app.route('/', methods=['GET'])
 def welcome():
