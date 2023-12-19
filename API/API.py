@@ -25,6 +25,10 @@ app.register_blueprint(waste_bp, url_prefix='/residuo')
 app.register_blueprint(machine_bp, url_prefix='/maquina')
 app.register_blueprint(vehicle_bp, url_prefix='/vehiculos')
 
+# Rutas destinadas al público 
+
+
+
 
 @app.route('/', methods=['GET'])
 def welcome():

@@ -8,7 +8,7 @@ machine_bp = Blueprint('machine', __name__)
 
 
 @machine_bp.route('/', methods=["GET"])
-def getMachineById(id):
+def getMachines():
     try:
         # Establecer conexión con la base de datos
         conn = get_db_connection()

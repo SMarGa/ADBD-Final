@@ -5,7 +5,7 @@ from db import  get_db_connection
 vehicle_bp = Blueprint('vehicle', __name__)
 
 @vehicle_bp.route('/', methods=["GET"])
-def getVehicleByMatricula():
+def getVehicles():
     try:
         # Establecer conexión con la base de datos
         conn = get_db_connection()
