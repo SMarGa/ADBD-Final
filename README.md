@@ -29,3 +29,6 @@ Las siguientes pruebas se realizarán sobre la carga inicial de la base de datos
 
 ![image](https://github.com/SMarGa/ADBD-Final/assets/72406871/90119caa-426e-4b64-920b-5e80b15d49de)
 
+-Inserción en instalación con tipos repetidos(plástico, papel, papel) trigger lo pone bien (plástico, papel):
+
+![image](https://github.com/SMarGa/ADBD-Final/assets/72406871/6d1e632b-9f93-4307-af93-0701f051484b)
