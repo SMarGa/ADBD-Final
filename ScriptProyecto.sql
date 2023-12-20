@@ -8,6 +8,24 @@ CREATE TYPE ocupacion AS ENUM ('tecnico', 'guia', 'transportista');
 CREATE TYPE tipo_vehiculo AS ENUM ('transporte_residuos', 'transporte_personas');
 CREATE TYPE tipo_carnet AS ENUM ('B', 'C', 'D');
 
+-- Borrar las tablas si ya existen
+
+DROP TABLE IF EXISTS Guia_Visita CASCADE;
+DROP TABLE IF EXISTS Vehiculo_Visita CASCADE;
+DROP TABLE IF EXISTS Visita CASCADE;
+DROP TABLE IF EXISTS Vehiculo_Ruta CASCADE;
+DROP TABLE IF EXISTS Ruta CASCADE;
+DROP TABLE IF EXISTS Transportista_Vehiculo CASCADE;
+DROP TABLE IF EXISTS Vehiculo CASCADE;
+DROP TABLE IF EXISTS Transportista CASCADE;
+DROP TABLE IF EXISTS Tecnico_Instalacion CASCADE;
+DROP TABLE IF EXISTS Tecnico CASCADE;
+DROP TABLE IF EXISTS Empleado CASCADE;
+DROP TABLE IF EXISTS Maquinas CASCADE;
+DROP TABLE IF EXISTS Residuo CASCADE;
+DROP TABLE IF EXISTS Instalacion CASCADE;
+DROP TABLE IF EXISTS Celda CASCADE;
+
 -- Creación de tablas
 
 CREATE TABLE Celda (
@@ -33,8 +51,8 @@ CREATE TABLE Residuo (
     Fecha_de_recepcion DATE NOT NULL,
     ID_C INTEGER,
     ID_I INTEGER,
-    FOREIGN KEY (ID_C) REFERENCES Celda(ID_C) ON DELETE CASCADE,
-    FOREIGN KEY (ID_I) REFERENCES Instalacion(ID_I)
+    FOREIGN KEY (ID_C) REFERENCES Celda(ID_C) ON DELETE SET NULL,
+    FOREIGN KEY (ID_I) REFERENCES Instalacion(ID_I) ON DELETE SET NULL
 );
 
 CREATE TABLE Maquinas (
@@ -64,8 +82,8 @@ CREATE TABLE Tecnico_Instalacion (
     ID_I INTEGER,
     ID_Emp INTEGER,
     PRIMARY KEY (ID_I, ID_Emp),
-    FOREIGN KEY (ID_I) REFERENCES Instalacion(ID_I),
-    FOREIGN KEY (ID_Emp) REFERENCES Tecnico(ID_Emp)
+    FOREIGN KEY (ID_I) REFERENCES Instalacion(ID_I) ON DELETE CASCADE,
+    FOREIGN KEY (ID_Emp) REFERENCES Tecnico(ID_Emp) ON DELETE CASCADE
 );
 
 CREATE TABLE Transportista (
@@ -119,8 +137,8 @@ CREATE TABLE Vehiculo_Visita (
     ID_Visit INTEGER,
     Matricula VARCHAR(20),
     PRIMARY KEY (ID_Visit, Matricula),
-    FOREIGN KEY (ID_Visit) REFERENCES Visita(ID_Visit) ON DELETE SET NULL,
-    FOREIGN KEY (Matricula) REFERENCES Vehiculo(Matricula) ON DELETE SET NULL
+    FOREIGN KEY (ID_Visit) REFERENCES Visita(ID_Visit) ON DELETE CASCADE,
+    FOREIGN KEY (Matricula) REFERENCES Vehiculo(Matricula) ON DELETE CASCADE
 );
 
 CREATE TABLE Guia (
