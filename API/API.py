@@ -8,13 +8,15 @@ from instalation import instalation_bp
 from route import route_bp
 from machine import machine_bp
 from waste import waste_bp
-
 from visit import visit_bp
 from vehicle import vehicle_bp
+
 from visit_vehicle import visit_vehicle_bp
 from guide_visit import guide_visit_bp
 from tech_instalation import tec_inst_bp
 from trans_vehicle import trans_vehicle_bp
+
+from public import public_bp
 
 from db import  get_db_connection
 
@@ -48,7 +50,7 @@ app.register_blueprint(trans_vehicle_bp, url_prefix='/trans_veh')
 
 # Rutas destinadas a clientes 
 
-
+app.register_blueprint(public_bp, url_prefix='/public')
 
 
 
