@@ -119,6 +119,7 @@ def getEmpTec():
         conn.close()
         if( len(data) == 0):
             return jsonify("No se ha encontrado tecnicos"),404
+        
         return jsonify(data)
     
     except Exception as err:
