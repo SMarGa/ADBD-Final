@@ -1,7 +1,8 @@
 # ADBD-Final
 
+La descripción del proyecto se encuentra en el pdf, en el readme estarán las imagenes de las pruebas sobre SQL.
 
-### Imágenes de pruebas sobre la base de datos en sql:
+### Imágenes de pruebas sobre la base de datos en SQL:
 
 Las siguientes pruebas se realizarán sobre la carga inicial de la base de datos como se encuentra en el script.
 
